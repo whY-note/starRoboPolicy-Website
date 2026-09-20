@@ -5,11 +5,11 @@
     "classify_objects_by_language",
     "imitate_sorting_sequence",
     "arrange_largest_number",
-    "pack_objects_into_box",
-    "classify_objects",
-    "build_tower",
-    "make_kong",
     "fold_clothes",
+    "build_tower",
+    "classify_objects",
+    "make_kong",
+    "pack_objects_into_box",
     "put_bottles_into_dustbin"
   ],
   "selections": {
@@ -33,14 +33,9 @@
       "qwenpi_v3_plus_gpt": "/dataset/vhaowenyan/projects/UnityPolicy/datasets/runs/formal-four-v17-native/qwenpi_v3_plus_gpt/arrange_largest_number__standard__g0__l0",
       "gpt_direct": null
     },
-    "pack_objects_into_box": {
-      "qwenpi_v3": "/dataset/vhaowenyan/projects/sim_platform/RoboDojo/eval_result/RoboDojo/pack_objects_into_box/starVLA/arx_x5/0_ckpt_name=hf_qwenpi_v3,action_type=joint/2026-09-17_01-34-16",
-      "qwenpi_v3_plus_gpt": "/dataset/vhaowenyan/projects/sim_platform/RoboDojo/data_gpt_plus_starvla/pack_objects_into_box/pack_objects_into_box__standard__g0__l2/20260919_212351-31688",
-      "gpt_direct": null
-    },
-    "classify_objects": {
-      "qwenpi_v3": "/dataset/vhaowenyan/projects/sim_platform/RoboDojo/eval_result/RoboDojo/classify_objects/starVLA/arx_x5/0_ckpt_name=hf_qwenpi_v3,action_type=joint/2026-09-17_15-47-59",
-      "qwenpi_v3_plus_gpt": "/dataset/vhaowenyan/projects/sim_platform/RoboDojo/data_gpt_plus_starvla/classify_objects/classify_objects__standard__g0__l2/20260919_190530-6006",
+    "fold_clothes": {
+      "qwenpi_v3": "/dataset/vhaowenyan/projects/UnityPolicy/datasets/runs/formal-five-v34-fold-01-qwenpi-v3/qwenpi_v3/fold_clothes__standard__g0__l0",
+      "qwenpi_v3_plus_gpt": "/dataset/vhaowenyan/projects/UnityPolicy/datasets/runs/formal-five-v37-fold-06-qwenpi-v3-plus-gpt/qwenpi_v3_plus_gpt/fold_clothes__standard__g0__l2",
       "gpt_direct": null
     },
     "build_tower": {
@@ -48,14 +43,19 @@
       "qwenpi_v3_plus_gpt": "/dataset/vhaowenyan/projects/sim_platform/RoboDojo/data_gpt_plus_starvla/build_tower/build_tower__standard__g0__l2/20260919_200305-4217",
       "gpt_direct": null
     },
+    "classify_objects": {
+      "qwenpi_v3": "/dataset/vhaowenyan/projects/sim_platform/RoboDojo/eval_result/RoboDojo/classify_objects/starVLA/arx_x5/0_ckpt_name=hf_qwenpi_v3,action_type=joint/2026-09-17_15-47-59",
+      "qwenpi_v3_plus_gpt": "/dataset/vhaowenyan/projects/sim_platform/RoboDojo/data_gpt_plus_starvla/classify_objects/classify_objects__standard__g0__l2/20260919_190530-6006",
+      "gpt_direct": null
+    },
     "make_kong": {
       "qwenpi_v3": "/dataset/vhaowenyan/projects/sim_platform/RoboDojo/eval_result/RoboDojo/make_kong/starVLA/arx_x5/0_ckpt_name=hf_qwenpi_v3,action_type=joint/2026-09-17_15-44-00",
       "qwenpi_v3_plus_gpt": "/dataset/vhaowenyan/projects/sim_platform/RoboDojo/data_gpt_plus_starvla/make_kong/make_kong__standard__g0__l3/20260919_223140-2119",
       "gpt_direct": null
     },
-    "fold_clothes": {
-      "qwenpi_v3": "/dataset/vhaowenyan/projects/UnityPolicy/datasets/runs/formal-five-v34-fold-01-qwenpi-v3/qwenpi_v3/fold_clothes__standard__g0__l0",
-      "qwenpi_v3_plus_gpt": "/dataset/vhaowenyan/projects/UnityPolicy/datasets/runs/formal-five-v37-fold-06-qwenpi-v3-plus-gpt/qwenpi_v3_plus_gpt/fold_clothes__standard__g0__l2",
+    "pack_objects_into_box": {
+      "qwenpi_v3": "/dataset/vhaowenyan/projects/sim_platform/RoboDojo/eval_result/RoboDojo/pack_objects_into_box/starVLA/arx_x5/0_ckpt_name=hf_qwenpi_v3,action_type=joint/2026-09-17_01-34-16",
+      "qwenpi_v3_plus_gpt": "/dataset/vhaowenyan/projects/sim_platform/RoboDojo/data_gpt_plus_starvla/pack_objects_into_box/pack_objects_into_box__standard__g0__l2/20260919_212351-31688",
       "gpt_direct": null
     },
     "put_bottles_into_dustbin": {
@@ -274,18 +274,70 @@
       "termination": "native_success"
     },
     {
-      "task": "pack_objects_into_box",
+      "task": "fold_clothes",
       "method": "qwenpi_v3",
       "methodTitle": "StarVLA",
-      "title": "Pack objects into a box",
-      "caseId": "2026-09-17_01-34-16 episode 0004",
-      "video": "assets/evaluation/pack_objects_into_box--qwenpi_v3.mp4",
-      "poster": "assets/evaluation/pack_objects_into_box--qwenpi_v3.jpg",
-      "source": "/dataset/vhaowenyan/projects/sim_platform/RoboDojo/eval_result/RoboDojo/pack_objects_into_box/starVLA/arx_x5/0_ckpt_name=hf_qwenpi_v3,action_type=joint/2026-09-17_01-34-16",
-      "instruction": "StarVLA policy evaluation for pack objects into a box.",
-      "duration": 45.8,
+      "title": "Fold clothes",
+      "caseId": "fold_clothes__standard__g0__l0",
+      "video": "assets/evaluation/fold_clothes--qwenpi_v3.mp4",
+      "poster": "assets/evaluation/fold_clothes--qwenpi_v3.jpg",
+      "source": "/dataset/vhaowenyan/projects/UnityPolicy/datasets/runs/formal-five-v34-fold-01-qwenpi-v3/qwenpi_v3/fold_clothes__standard__g0__l0",
+      "instruction": "Fold the clothes neatly.",
+      "duration": 12.16,
+      "steps": 304,
+      "observations": 19,
+      "lastObservationStep": 288,
+      "decisions": 19,
+      "reasonerCalls": 0,
+      "usage": {
+        "input_tokens": 0,
+        "cached_input_tokens": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      },
+      "success": true,
+      "score": 1.0,
+      "termination": "native_success"
+    },
+    {
+      "task": "fold_clothes",
+      "method": "qwenpi_v3_plus_gpt",
+      "methodTitle": "StarVLA + GPT 6",
+      "title": "Fold clothes",
+      "caseId": "fold_clothes__standard__g0__l2",
+      "video": "assets/evaluation/fold_clothes--qwenpi_v3_plus_gpt.mp4",
+      "poster": "assets/evaluation/fold_clothes--qwenpi_v3_plus_gpt.jpg",
+      "source": "/dataset/vhaowenyan/projects/UnityPolicy/datasets/runs/formal-five-v37-fold-06-qwenpi-v3-plus-gpt/qwenpi_v3_plus_gpt/fold_clothes__standard__g0__l2",
+      "instruction": "Fold the clothes neatly.",
+      "duration": 11.56,
+      "steps": 289,
+      "observations": 21,
+      "lastObservationStep": 20,
+      "decisions": 20,
+      "reasonerCalls": 20,
+      "usage": {
+        "input_tokens": 2622094,
+        "cached_input_tokens": 2445440,
+        "output_tokens": 7649,
+        "total_tokens": 2629743
+      },
+      "success": true,
+      "score": 1.0,
+      "termination": "native_success"
+    },
+    {
+      "task": "build_tower",
+      "method": "qwenpi_v3",
+      "methodTitle": "StarVLA",
+      "title": "Build a tower",
+      "caseId": "2026-09-16_12-56-53 episode 0000",
+      "video": "assets/evaluation/build_tower--qwenpi_v3.mp4",
+      "poster": "assets/evaluation/build_tower--qwenpi_v3.jpg",
+      "source": "/dataset/vhaowenyan/projects/sim_platform/RoboDojo/eval_result/RoboDojo/build_tower/starVLA/arx_x5/0_ckpt_name=hf_qwenpi_v3,action_type=joint/2026-09-16_12-56-53",
+      "instruction": "StarVLA policy evaluation for build a tower.",
+      "duration": 28.12,
       "steps": 0,
-      "observations": 1145,
+      "observations": 703,
       "decisions": 0,
       "reasonerCalls": 0,
       "usage": {
@@ -299,29 +351,29 @@
       "termination": "native_success"
     },
     {
-      "task": "pack_objects_into_box",
+      "task": "build_tower",
       "method": "qwenpi_v3_plus_gpt",
       "methodTitle": "StarVLA + GPT 6",
-      "title": "Pack objects into a box",
-      "caseId": "20260919_212351-31688",
-      "video": "assets/evaluation/pack_objects_into_box--qwenpi_v3_plus_gpt.mp4",
-      "poster": "assets/evaluation/pack_objects_into_box--qwenpi_v3_plus_gpt.jpg",
-      "source": "/dataset/vhaowenyan/projects/sim_platform/RoboDojo/data_gpt_plus_starvla/pack_objects_into_box/pack_objects_into_box__standard__g0__l2/20260919_212351-31688",
-      "instruction": "Place all the objects into the box with their front sides facing left.",
-      "duration": 52.0,
-      "steps": 1300,
-      "observations": 197,
-      "lastObservationStep": 196,
-      "decisions": 196,
-      "reasonerCalls": 196,
+      "title": "Build a tower",
+      "caseId": "20260919_200305-4217",
+      "video": "assets/evaluation/build_tower--qwenpi_v3_plus_gpt.mp4",
+      "poster": "assets/evaluation/build_tower--qwenpi_v3_plus_gpt.jpg",
+      "source": "/dataset/vhaowenyan/projects/sim_platform/RoboDojo/data_gpt_plus_starvla/build_tower/build_tower__standard__g0__l2/20260919_200305-4217",
+      "instruction": "Build a tower using the wooden blocks and wooden boards.",
+      "duration": 42.0,
+      "steps": 1050,
+      "observations": 158,
+      "lastObservationStep": 157,
+      "decisions": 157,
+      "reasonerCalls": 157,
       "usage": {
-        "input_tokens": 25141082,
-        "cached_input_tokens": 24265216,
-        "output_tokens": 91316,
-        "total_tokens": 25232398
+        "input_tokens": 19659377,
+        "cached_input_tokens": 18686976,
+        "output_tokens": 76592,
+        "total_tokens": 19735969
       },
       "success": false,
-      "score": 0.25,
+      "score": 0.1,
       "termination": "terminal"
     },
     {
@@ -376,57 +428,6 @@
       "termination": "terminal"
     },
     {
-      "task": "build_tower",
-      "method": "qwenpi_v3",
-      "methodTitle": "StarVLA",
-      "title": "Build a tower",
-      "caseId": "2026-09-16_12-56-53 episode 0000",
-      "video": "assets/evaluation/build_tower--qwenpi_v3.mp4",
-      "poster": "assets/evaluation/build_tower--qwenpi_v3.jpg",
-      "source": "/dataset/vhaowenyan/projects/sim_platform/RoboDojo/eval_result/RoboDojo/build_tower/starVLA/arx_x5/0_ckpt_name=hf_qwenpi_v3,action_type=joint/2026-09-16_12-56-53",
-      "instruction": "StarVLA policy evaluation for build a tower.",
-      "duration": 28.12,
-      "steps": 0,
-      "observations": 703,
-      "decisions": 0,
-      "reasonerCalls": 0,
-      "usage": {
-        "input_tokens": 0,
-        "cached_input_tokens": 0,
-        "output_tokens": 0,
-        "total_tokens": 0
-      },
-      "success": true,
-      "score": 1.0,
-      "termination": "native_success"
-    },
-    {
-      "task": "build_tower",
-      "method": "qwenpi_v3_plus_gpt",
-      "methodTitle": "StarVLA + GPT 6",
-      "title": "Build a tower",
-      "caseId": "20260919_200305-4217",
-      "video": "assets/evaluation/build_tower--qwenpi_v3_plus_gpt.mp4",
-      "poster": "assets/evaluation/build_tower--qwenpi_v3_plus_gpt.jpg",
-      "source": "/dataset/vhaowenyan/projects/sim_platform/RoboDojo/data_gpt_plus_starvla/build_tower/build_tower__standard__g0__l2/20260919_200305-4217",
-      "instruction": "Build a tower using the wooden blocks and wooden boards.",
-      "duration": 42.0,
-      "steps": 1050,
-      "observations": 158,
-      "lastObservationStep": 157,
-      "decisions": 157,
-      "reasonerCalls": 157,
-      "usage": {
-        "input_tokens": 19659377,
-        "cached_input_tokens": 18686976,
-        "output_tokens": 76592,
-        "total_tokens": 19735969
-      },
-      "success": false,
-      "score": 0.1,
-      "termination": "terminal"
-    },
-    {
       "task": "make_kong",
       "method": "qwenpi_v3",
       "methodTitle": "StarVLA",
@@ -478,20 +479,19 @@
       "termination": "terminal"
     },
     {
-      "task": "fold_clothes",
+      "task": "pack_objects_into_box",
       "method": "qwenpi_v3",
       "methodTitle": "StarVLA",
-      "title": "Fold clothes",
-      "caseId": "fold_clothes__standard__g0__l0",
-      "video": "assets/evaluation/fold_clothes--qwenpi_v3.mp4",
-      "poster": "assets/evaluation/fold_clothes--qwenpi_v3.jpg",
-      "source": "/dataset/vhaowenyan/projects/UnityPolicy/datasets/runs/formal-five-v34-fold-01-qwenpi-v3/qwenpi_v3/fold_clothes__standard__g0__l0",
-      "instruction": "Fold the clothes neatly.",
-      "duration": 12.16,
-      "steps": 304,
-      "observations": 19,
-      "lastObservationStep": 288,
-      "decisions": 19,
+      "title": "Pack objects into a box",
+      "caseId": "2026-09-17_01-34-16 episode 0004",
+      "video": "assets/evaluation/pack_objects_into_box--qwenpi_v3.mp4",
+      "poster": "assets/evaluation/pack_objects_into_box--qwenpi_v3.jpg",
+      "source": "/dataset/vhaowenyan/projects/sim_platform/RoboDojo/eval_result/RoboDojo/pack_objects_into_box/starVLA/arx_x5/0_ckpt_name=hf_qwenpi_v3,action_type=joint/2026-09-17_01-34-16",
+      "instruction": "StarVLA policy evaluation for pack objects into a box.",
+      "duration": 45.8,
+      "steps": 0,
+      "observations": 1145,
+      "decisions": 0,
       "reasonerCalls": 0,
       "usage": {
         "input_tokens": 0,
@@ -504,30 +504,30 @@
       "termination": "native_success"
     },
     {
-      "task": "fold_clothes",
+      "task": "pack_objects_into_box",
       "method": "qwenpi_v3_plus_gpt",
       "methodTitle": "StarVLA + GPT 6",
-      "title": "Fold clothes",
-      "caseId": "fold_clothes__standard__g0__l2",
-      "video": "assets/evaluation/fold_clothes--qwenpi_v3_plus_gpt.mp4",
-      "poster": "assets/evaluation/fold_clothes--qwenpi_v3_plus_gpt.jpg",
-      "source": "/dataset/vhaowenyan/projects/UnityPolicy/datasets/runs/formal-five-v37-fold-06-qwenpi-v3-plus-gpt/qwenpi_v3_plus_gpt/fold_clothes__standard__g0__l2",
-      "instruction": "Fold the clothes neatly.",
-      "duration": 11.56,
-      "steps": 289,
-      "observations": 21,
-      "lastObservationStep": 20,
-      "decisions": 20,
-      "reasonerCalls": 20,
+      "title": "Pack objects into a box",
+      "caseId": "20260919_212351-31688",
+      "video": "assets/evaluation/pack_objects_into_box--qwenpi_v3_plus_gpt.mp4",
+      "poster": "assets/evaluation/pack_objects_into_box--qwenpi_v3_plus_gpt.jpg",
+      "source": "/dataset/vhaowenyan/projects/sim_platform/RoboDojo/data_gpt_plus_starvla/pack_objects_into_box/pack_objects_into_box__standard__g0__l2/20260919_212351-31688",
+      "instruction": "Place all the objects into the box with their front sides facing left.",
+      "duration": 52.0,
+      "steps": 1300,
+      "observations": 197,
+      "lastObservationStep": 196,
+      "decisions": 196,
+      "reasonerCalls": 196,
       "usage": {
-        "input_tokens": 2622094,
-        "cached_input_tokens": 2445440,
-        "output_tokens": 7649,
-        "total_tokens": 2629743
+        "input_tokens": 25141082,
+        "cached_input_tokens": 24265216,
+        "output_tokens": 91316,
+        "total_tokens": 25232398
       },
-      "success": true,
-      "score": 1.0,
-      "termination": "native_success"
+      "success": false,
+      "score": 0.25,
+      "termination": "terminal"
     },
     {
       "task": "put_bottles_into_dustbin",

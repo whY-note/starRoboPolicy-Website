@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="starRoboHarness is an auditable control layer that connects multimodal reasoners to robot policies." />
+    <meta name="theme-color" content="#ffffff" />
+    <title>starRoboHarness · Auditable reasoning for robot policies</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="assets/evaluation/manifest.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="topbar">
+      <a class="wordmark" href="#top" aria-label="starRoboHarness home">
+        <span class="wordmark-mark" aria-hidden="true">S</span>
+        <span>starRoboHarness</span>
+      </a>
+      <nav class="topbar-nav" aria-label="Primary navigation">
+        <a href="#abstract">Abstract</a>
+        <a href="#introduction">Introduction</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a class="repo-link" href="https://github.com/starVLA/starRoboHarness" target="_blank" rel="noopener noreferrer" aria-label="View the starRoboHarness repository on GitHub">Github <span aria-hidden="true">↗</span></a>
+      </nav>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+    </header>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+      <a href="#abstract">Abstract</a><a href="#introduction">Introduction</a><a href="#method">Method</a><a href="#results">Results</a>
+    </nav>
+
+    <main id="main">
+      <article class="report" id="top">
+        <header class="hero">
+          <div class="hero-background" aria-hidden="true">
+            <div class="hero-strip">
+              <div class="hero-strip-track">
+                <div class="hero-strip-set">
+                  <img src="assets/hero/arrange-l0-early.png" alt="" />
+                  <img src="assets/hero/classify-l0-mid.png" alt="" />
+                  <img src="assets/hero/arrange-l1-mid.png" alt="" />
+                  <img src="assets/hero/classify-l1-final.png" alt="" />
+                  <img src="assets/hero/arrange-l2-mid.png" alt="" />
+                  <img src="assets/hero/classify-l1-mid.png" alt="" />
+                </div>
+                <div class="hero-strip-set">
+                  <img src="assets/hero/arrange-l0-early.png" alt="" />
+                  <img src="assets/hero/classify-l0-mid.png" alt="" />
+                  <img src="assets/hero/arrange-l1-mid.png" alt="" />
+                  <img src="assets/hero/classify-l1-final.png" alt="" />
+                  <img src="assets/hero/arrange-l2-mid.png" alt="" />
+                  <img src="assets/hero/classify-l1-mid.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="hero-strip">
+              <div class="hero-strip-track">
+                <div class="hero-strip-set">
+                  <img src="assets/hero/sorting-mid.png" alt="" />
+                  <img src="assets/hero/organize-l0-mid.png" alt="" />
+                  <img src="assets/hero/sorting-left-wrist.png" alt="" />
+                  <img src="assets/hero/organize-l1-mid.png" alt="" />
+                  <img src="assets/hero/sorting-final.png" alt="" />
+                  <img src="assets/hero/organize-l0-final.png" alt="" />
+                </div>
+                <div class="hero-strip-set">
+                  <img src="assets/hero/sorting-mid.png" alt="" />
+                  <img src="assets/hero/organize-l0-mid.png" alt="" />
+                  <img src="assets/hero/sorting-left-wrist.png" alt="" />
+                  <img src="assets/hero/organize-l1-mid.png" alt="" />
+                  <img src="assets/hero/sorting-final.png" alt="" />
+                  <img src="assets/hero/organize-l0-final.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="hero-strip">
+              <div class="hero-strip-track">
+                <div class="hero-strip-set">
+                  <img src="assets/hero/classify-l1-mid.png" alt="" />
+                  <img src="assets/hero/sorting-final.png" alt="" />
+                  <img src="assets/hero/arrange-l2-mid.png" alt="" />
+                  <img src="assets/hero/organize-l0-final.png" alt="" />
+                  <img src="assets/hero/classify-l0-mid.png" alt="" />
+                  <img src="assets/hero/sorting-mid.png" alt="" />
+                </div>
+                <div class="hero-strip-set">
+                  <img src="assets/hero/classify-l1-mid.png" alt="" />
+                  <img src="assets/hero/sorting-final.png" alt="" />
+                  <img src="assets/hero/arrange-l2-mid.png" alt="" />
+                  <img src="assets/hero/organize-l0-final.png" alt="" />
+                  <img src="assets/hero/classify-l0-mid.png" alt="" />
+                  <img src="assets/hero/sorting-mid.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-content page-column">
+            <h1><span>starRoboHarness</span></h1>
+            <div class="authors" aria-label="Authors">
+              <span>Jiehui Huang</span>
+              <span>Haowen Yan</span>
+              <span>Yuxin Chen</span>
+              <span>Zixuan Wang</span>
+              <span>Jinhui Ye<sup aria-label="Project lead">†</sup></span>
+              <span>Jiaya Jia</span>
+            </div>
+            <p class="author-note"><sup aria-hidden="true">†</sup> Project lead</p>
+            <!-- <a class="hero-repository" href="https://github.com/JackAILab/UnityPolicy" target="_blank" rel="noopener noreferrer" aria-label="View the starRoboHarness repository on GitHub">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.64 0 8.13c0 3.59 2.29 6.63 5.47 7.71.4.08.55-.18.55-.39 0-.19-.01-.83-.01-1.51-2.01.38-2.53-.5-2.69-.96-.09-.23-.48-.96-.82-1.15-.28-.15-.68-.53-.01-.54.63-.01 1.08.59 1.23.83.72 1.23 1.87.88 2.33.67.07-.53.28-.88.51-1.08-1.78-.21-3.64-.91-3.64-4.02 0-.89.31-1.62.82-2.19-.08-.21-.36-1.04.08-2.16 0 0 .67-.22 2.2.84A7.48 7.48 0 0 1 8 3.91c.68 0 1.36.09 2 .27 1.53-1.06 2.2-.84 2.2-.84.44 1.12.16 1.95.08 2.16.51.57.82 1.3.82 2.19 0 3.12-1.87 3.81-3.65 4.02.29.25.54.74.54 1.5 0 1.08-.01 1.95-.01 2.22 0 .22.15.47.55.39A8.14 8.14 0 0 0 16 8.13C16 3.64 12.42 0 8 0Z" /></svg>
+              <span>GitHub</span>
+            </a> -->
+            <p class="dek">An Open Execution Harness for Reasoning-Driven Robotics.</p>
+            <blockquote class="tldr">
+              <span class="tldr-label">TL;DR</span>
+              <p>starRoboHarness keeps proposal generation, review, safety checks, and execution separate. At each <strong>fresh observation boundary</strong>, a reasoner may review the policy's next action chunk, but bounded correction is allowed only when visible evidence shows a failure or a misaligned next intent.</p>
+              <div class="tldr-actions"><a class="button primary" href="#method">Explore the method</a><a class="button secondary" href="#results">View the results</a></div>
+            </blockquote>
+          </div>
+        </header>
+
+        <nav class="section-nav page-column" aria-label="Report sections">
+          <a href="#abstract">Abstract</a><a href="#introduction">Introduction</a><a href="#method">Method</a><a href="#results">Results</a><a href="#evaluation">Evaluation protocol</a><a href="#limitations">Limitations</a><a href="#roadmap">Roadmap</a>
+        </nav>
+
+        <section class="section page-column" id="abstract">
+          <div class="section-kicker">01 · Abstract</div>
+          <h2>Auditable reasoning on top of an existing robot policy</h2>
+          <p class="lead">starRoboHarness is a small, model- and benchmark-neutral control layer that connects multimodal reasoners to robot policies without giving the reasoner unrestricted control. It separates proposal generation, evidence-based review, safety validation, execution, and trace collection at every fresh observation boundary.</p>
+          <p>Our first integration combines StarVLA's QwenPI_v3 policy with GPT 6 Astra and compares the hybrid controller with robot-policy baselines and direct reasoner control on ten RoboDojo tasks. In the supplied result summary, StarVLA + GPT 6 Astra reaches an overall score of <strong>62.6</strong> and an overall success rate of <strong>48.00%</strong>, compared with 24.72 and 17.60% for StarVLA alone.</p>
+          <p class="keywords"><b>Keywords:</b> vision-language-action models · multimodal reasoning · hybrid control · robot manipulation · auditable evaluation</p>
+        </section>
+
+        <figure class="system-architecture-figure wide-inner">
+          <img src="assets/architecture.jpg" alt="StarRoboHarness system architecture: task and world-state inputs feed the reasoner and adaptive execution core, which connects to policy control, robot interfaces, evaluation, safety auditing, and a human-in-the-loop improvement cycle." />
+          <figcaption>StarRoboHarness architecture: evidence-driven reasoning and bounded control connect policies to real-world robot execution.</figcaption>
+        </figure>
+
+        <section class="section page-column" id="introduction">
+          <div class="section-kicker">02 · Introduction</div>
+          <h2>Use strong reasoning where it matters most</h2>
+          <p class="lead">Robot policies produce fast, continuous action sequences, while multimodal reasoners can inspect visible failures, challenge a policy's next intent, and plan short recoveries. The central question is how to combine those strengths without turning uncertainty into uncontrolled intervention.</p>
+          <p>starRoboHarness treats the learned policy as the default controller. A reasoner observes the same public evidence, reviews the previous execution and the next proposal, and receives authority only through explicit gates. The design keeps benchmark instructions and native outcomes intact while making policy families, reasoners, robots, and simulators replaceable behind adapters.</p>
+          <div class="principles-grid">
+            <article><span>01</span><h3>Protocol first</h3><p>Protocols stay stable while policies, reasoners, robots, and benchmarks remain replaceable.</p></article>
+            <article><span>02</span><h3>Evidence gated</h3><p>Uncertainty alone never authorizes takeover. Every correction must cite observable evidence.</p></article>
+            <article><span>03</span><h3>Bounded control</h3><p>A student prefix uses at most 15 steps; a local correction uses at most five before observing again.</p></article>
+            <article><span>04</span><h3>Trace everything</h3><p>Proposals, decisions, actual acknowledgements, native outcomes, versions, cost, and latency are recorded.</p></article>
+          </div>
+        </section>
+
+        <section class="section page-column" id="method">
+          <div class="section-kicker">03 · Method</div>
+          <h2>The policy executes fluently; the reasoner intervenes selectively</h2>
+          <p>Every control cycle starts from the benchmark's original instruction and an exact observation. StarVLA/QwenPI_v3 proposes an action chunk. The reasoner separately assesses the previous execution and the visible intent of the next proposal, then either passes the policy proposal or requests a bounded end-effector correction.</p>
+          <div class="protocol" aria-label="starRoboHarness control flow">
+            <div class="protocol-node input-node"><span>INPUT</span><strong>Task + observation</strong><small>3 RGB views · 14D state · instruction</small></div>
+            <div class="protocol-arrow" aria-hidden="true">→</div>
+            <div class="protocol-node"><span>POLICY</span><strong>StarVLA proposal</strong><small>QwenPI_v3 · 50 × 14 actions</small></div>
+            <div class="protocol-arrow" aria-hidden="true">→</div>
+            <div class="protocol-node accent-node"><span>REVIEW</span><strong>Evidence gate</strong><small>Outcome · intent · safety · freshness</small></div>
+            <div class="protocol-branch" aria-hidden="true"><i></i><b>OR</b><i></i></div>
+            <div class="protocol-outcomes">
+              <div class="protocol-node"><span>PASS</span><strong>Execute proposal</strong><small>1–15 student steps</small></div>
+              <div class="protocol-node teal-node"><span>CORRECT</span><strong>Bounded EEF fix</strong><small>1–5 reasoner steps</small></div>
+            </div>
+            <div class="protocol-return"><span aria-hidden="true">↺</span> Return to a fresh observation boundary</div>
+          </div>
+          <div class="spec-row" aria-label="Correction limits">
+            <div><strong>≤ 15</strong><span>student steps</span></div><div><strong>≤ 5</strong><span>correction steps</span></div><div><strong>5 cm</strong><span>translation per arm</span></div><div><strong>0.35 rad</strong><span>rotation per arm</span></div>
+          </div>
+          <p>The first policy contract uses three ordered RGB views, the raw 14D dual-ARX-X5 joint state, and continuous gripper opening with <code>0 = closed</code> and <code>1 = open</code>. QwenPI_v3 predicts 50 absolute joint-position actions; starRoboHarness executes only a bounded prefix before replanning.</p>
+        </section>
+
+        <section class="wide-section architecture-section" id="architecture">
+          <div class="wide-inner">
+            <div class="section-kicker">03.2 · System architecture</div>
+            <div class="section-heading-row"><h2>Replace adapters, not the control system</h2><p>StarVLA, OpenPI, RoboDojo, Isaac Sim, and provider SDKs remain outside the lightweight core package.</p></div>
+            <div class="architecture-map">
+              <div class="arch-lane"><span>PROPOSAL</span><strong>PolicyAdapter</strong><small>Binds a bounded, executable proposal to one exact observation and action contract.</small></div>
+              <div class="arch-connector"><span>proposal</span></div>
+              <div class="arch-lane focus"><span>AUTHORITY</span><strong>Evidence Gate + SafetyGuard</strong><small>Checks request identity, freshness, evidence, geometry, units, action bounds, and takeover scope.</small></div>
+              <div class="arch-connector"><span>decision</span></div>
+              <div class="arch-lane"><span>EXECUTION</span><strong>EnvironmentAdapter</strong><small>The only component allowed to change environment state; returns actual acknowledgements and native termination.</small></div>
+            </div>
+            <div class="adapter-strip"><span>Observation + ContextCompiler</span><span>ReasonerAdapter</span><span>EnvironmentAdapter</span><span>SHA-chained JSONL trace</span></div>
+          </div>
+        </section>
+
+        <section class="section wide-inner results-section" id="results">
+          <div class="results-intro">
+            <div class="section-kicker">04 · Results</div>
+            <h2>Ten-task RoboDojo comparison</h2>
+            <p class="lead">The tables compare six robot-policy baselines, the StarVLA + GPT 6 Astra hybrid, and GPT 6 Astra under direct control. Higher values are better for both native task score and success rate.</p>
+          </div>
+
+          <div class="result-summary" aria-label="Overall hybrid results">
+            <article><span>OVERALL SCORE</span><strong>62.6</strong><p>StarVLA + GPT 6 Astra</p></article>
+            <article><span>SUCCESS RATE</span><strong>48.00%</strong><p>StarVLA + GPT 6 Astra</p></article>
+            <article><span>SCORE LIFT</span><strong>+37.88</strong><p>points over StarVLA</p></article>
+            <article><span>SUCCESS LIFT</span><strong>+30.40 pp</strong><p>over StarVLA</p></article>
+          </div>
+
+          <div class="result-table-heading">
+            <div><span>TABLE 1</span><h3>Task score</h3></div>
+            <p>Scroll horizontally to compare all methods.</p>
+          </div>
+          <div class="benchmark-table-wrap" tabindex="0" aria-label="Scrollable task score table">
+            <table class="benchmark-table">
+              <caption>Task score by method; higher is better.</caption>
+              <thead><tr><th>Task</th><th>DM0.5</th><th>GalaxeaVLA<br />(G0.5)</th><th>Xiaomi-<br />Robotics-1</th><th>OpenWAM-α</th><th>π₀.₅</th><th>StarVLA</th><th class="primary-result">StarVLA +<br />GPT 6 Astra</th><th class="direct-result">GPT 6 Astra<br />(direct)</th></tr></thead>
+              <tbody>
+                <tr><th>Organize the table</th><td>44</td><td>46.33</td><td>57.67</td><td>62.5</td><td>23.33</td><td>26</td><td class="primary-result"><strong>62.5</strong></td><td class="direct-result">30</td></tr>
+                <tr><th>Classify by language</th><td>0.47</td><td>1.07</td><td>2</td><td>1.33</td><td>0.6</td><td>0.2</td><td class="primary-result"><strong>38</strong></td><td class="direct-result">60</td></tr>
+                <tr><th>Imitate a sorting sequence</th><td>1.8</td><td>1.67</td><td>2.5</td><td>2.9</td><td>1.6</td><td>0.6</td><td class="primary-result"><strong>53</strong></td><td class="direct-result">0</td></tr>
+                <tr><th>Arrange the largest number</th><td>7.85</td><td>4.11</td><td>8.56</td><td>4.36</td><td>2.29</td><td>8</td><td class="primary-result"><strong>57.5</strong></td><td class="direct-result">57</td></tr>
+                <tr><th>Pack objects into a box</th><td>14.72</td><td>17.12</td><td>18.69</td><td>20.83</td><td>18.36</td><td>12</td><td class="primary-result"><strong>50</strong></td><td class="direct-result">50</td></tr>
+                <tr><th>Classify objects</th><td>26.83</td><td>10.33</td><td>17.2</td><td>5.53</td><td>24.67</td><td>6.7</td><td class="primary-result"><strong>71</strong></td><td class="direct-result">100</td></tr>
+                <tr><th>Build a tower</th><td>55.2</td><td>82.93</td><td>52.6</td><td>52.53</td><td>37.73</td><td>70.6</td><td class="primary-result"><strong>64</strong></td><td class="direct-result">12</td></tr>
+                <tr><th>Make a Kong in Mahjong</th><td>56.67</td><td>90</td><td>41.33</td><td>32</td><td>26.67</td><td>16</td><td class="primary-result"><strong>40</strong></td><td class="direct-result">0</td></tr>
+                <tr><th>Fold clothes</th><td>28.96</td><td>32.75</td><td>41.49</td><td>51.31</td><td>29.12</td><td>39.2</td><td class="primary-result"><strong>100</strong></td><td class="direct-result">40</td></tr>
+                <tr><th>Put bottles in a bin</th><td>81.7</td><td>96.3</td><td>97.7</td><td>94.03</td><td>79.93</td><td>67.9</td><td class="primary-result"><strong>100</strong></td><td class="direct-result">36</td></tr>
+                <tr class="overall-row"><th>Overall</th><td>31.82</td><td>38.26</td><td>33.97</td><td>32.73</td><td>24.43</td><td>24.72</td><td class="primary-result"><strong>62.6</strong></td><td class="direct-result">37.81</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="result-table-heading second-table">
+            <div><span>TABLE 2</span><h3>Task success rate</h3></div>
+            <p>Native success percentage; higher is better.</p>
+          </div>
+          <div class="benchmark-table-wrap" tabindex="0" aria-label="Scrollable task success-rate table">
+            <table class="benchmark-table">
+              <caption>Task success rate by method; higher is better.</caption>
+              <thead><tr><th>Task</th><th>DM0.5</th><th>GalaxeaVLA<br />(G0.5)</th><th>Xiaomi-<br />Robotics-1</th><th>OpenWAM-α</th><th>π₀.₅</th><th>StarVLA</th><th class="primary-result">StarVLA +<br />GPT 6 Astra</th><th class="direct-result">GPT 6 Astra<br />(direct)</th></tr></thead>
+              <tbody>
+                <tr><th>Organize the table</th><td>4.00%</td><td>11.33%</td><td>14.67%</td><td>13.33%</td><td>0.00%</td><td>4.00%</td><td class="primary-result"><strong>0.00%</strong></td><td class="direct-result">0.00%</td></tr>
+                <tr><th>Classify by language</th><td>0.00%</td><td>0.00%</td><td>0.67%</td><td>0.00%</td><td>0.00%</td><td>0.00%</td><td class="primary-result"><strong>20.00%</strong></td><td class="direct-result">40.00%</td></tr>
+                <tr><th>Imitate a sorting sequence</th><td>0.00%</td><td>0.00%</td><td>0.67%</td><td>0.67%</td><td>0.00%</td><td>0.00%</td><td class="primary-result"><strong>40.00%</strong></td><td class="direct-result">0.00%</td></tr>
+                <tr><th>Arrange the largest number</th><td>3.20%</td><td>0.53%</td><td>3.73%</td><td>0.53%</td><td>0.53%</td><td>4.00%</td><td class="primary-result"><strong>50.00%</strong></td><td class="direct-result">40.00%</td></tr>
+                <tr><th>Pack objects into a box</th><td>1.33%</td><td>2.93%</td><td>2.40%</td><td>3.73%</td><td>2.40%</td><td>4.00%</td><td class="primary-result"><strong>20.00%</strong></td><td class="direct-result">20.00%</td></tr>
+                <tr><th>Classify objects</th><td>16.67%</td><td>4.00%</td><td>8.67%</td><td>1.33%</td><td>12.67%</td><td>0.00%</td><td class="primary-result"><strong>60.00%</strong></td><td class="direct-result">100.00%</td></tr>
+                <tr><th>Build a tower</th><td>42.00%</td><td>78.67%</td><td>47.33%</td><td>38.67%</td><td>24.00%</td><td>62.00%</td><td class="primary-result"><strong>60.00%</strong></td><td class="direct-result">0.00%</td></tr>
+                <tr><th>Make a Kong in Mahjong</th><td>56.67%</td><td>90.00%</td><td>41.33%</td><td>32.00%</td><td>26.67%</td><td>16.00%</td><td class="primary-result"><strong>40.00%</strong></td><td class="direct-result">0.00%</td></tr>
+                <tr><th>Fold clothes</th><td>24.53%</td><td>28.00%</td><td>38.93%</td><td>49.07%</td><td>21.07%</td><td>32.00%</td><td class="primary-result"><strong>100.00%</strong></td><td class="direct-result">40.00%</td></tr>
+                <tr><th>Put bottles in a bin</th><td>72.00%</td><td>94.00%</td><td>96.67%</td><td>91.33%</td><td>69.33%</td><td>54.00%</td><td class="primary-result"><strong>100.00%</strong></td><td class="direct-result">20.00%</td></tr>
+                <tr class="overall-row"><th>Overall</th><td>22.04%</td><td>30.95%</td><td>25.51%</td><td>23.07%</td><td>15.67%</td><td>17.60%</td><td class="primary-result"><strong>48.00%</strong></td><td class="direct-result">26.00%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="results-note">Values are reproduced from the supplied result summary. Bold blue cells identify the hybrid method, not the best value in every individual row.</p>
+
+          <section class="evaluation-replays" aria-labelledby="replay-heading">
+            <div class="replay-heading">
+              <div><span class="section-kicker">Inside an evaluation</span><h3 id="replay-heading">Watch each control mode</h3></div>
+              <span class="replay-source">Best available episode per task and method</span>
+            </div>
+            <p class="replay-intro">Each task has its own row. Choose StarVLA, StarVLA + GPT 6, or GPT 6 (direct) to load that control mode's replay. Episodes were selected by success first and native score second; direct GPT 6 data is not available yet.</p>
+            <div id="replay-list" class="replay-list" aria-live="polite"></div>
+            <noscript><p class="replay-notice">Enable JavaScript to select a control mode and play the evaluation replays.</p></noscript>
+          </section>
+        </section>
+
+        <section class="section page-column" id="evaluation">
+          <div class="section-kicker">05 · Evaluation protocol</div>
+          <h2>Report quality, validity, and cost together</h2>
+          <p class="lead">A valid comparison aligns task, layout, seed, instruction, action contract, and native termination. Success and score remain environment outcomes rather than model self-reports.</p>
+          <div class="metric-switch" role="group" aria-label="Evaluation metric category"><button type="button" aria-pressed="true" data-metric="quality">Quality metrics</button><button type="button" aria-pressed="false" data-metric="efficiency">Efficiency metrics</button></div>
+          <div class="metric-panel" data-panel="quality">
+            <div class="metric-card"><span>PRIMARY</span><strong>Native success + score</strong><p>Use the environment's terminal receipt, never the model's own claim of success.</p></div>
+            <div class="metric-card"><span>PAIRED</span><strong>Win / tie / loss</strong><p>Compare methods case by case with task, layout, seed, and termination aligned.</p></div>
+            <div class="metric-card"><span>SAFETY</span><strong>False takeover</strong><p>Measure interventions made without sufficient evidence of failure or misalignment.</p></div>
+            <div class="metric-card"><span>RECOVERY</span><strong>Failure recovery</strong><p>Measure whether the system regains progress after an observed execution failure.</p></div>
+          </div>
+          <div class="metric-panel" data-panel="efficiency" hidden>
+            <div class="metric-card"><span>MODEL</span><strong>Calls + tokens</strong><p>Report total calls, input and output tokens, and cached-input usage.</p></div>
+            <div class="metric-card"><span>LATENCY</span><strong>p50 / p95</strong><p>Track end-to-end reasoner decision and student-policy latency separately.</p></div>
+            <div class="metric-card"><span>CONTROL</span><strong>Correction ratio</strong><p>Measure the share of executed control steps that came from reasoner corrections.</p></div>
+            <div class="metric-card"><span>COMPUTE</span><strong>Wall time + GPU-hours</strong><p>Report compute and infrastructure failures separately from model outcomes.</p></div>
+          </div>
+          <div class="disclosure evaluation-note"><span>Required evidence</span>Every published result should include valid case coverage, code and checkpoint identity, native terminal receipts, paired seeds, model usage, latency, correction ratio, wall time, and infrastructure failures.</div>
+        </section>
+
+        <section class="section page-column" id="limitations">
+          <div class="section-kicker">06 · Limitations</div>
+          <h2>What the aggregate tables do not establish</h2>
+          <p>The reported averages show task-level performance, but they do not by themselves identify which component caused an improvement. Reasoner quality, control cadence, rendering, policy stochasticity, and runtime conditions can all affect a rollout.</p>
+          <div class="limitations-grid">
+            <article><h3>Protocol alignment</h3><p>Baseline values should be compared only when task definitions, layouts, seeds, horizons, and success criteria are aligned.</p></article>
+            <article><h3>Statistical coverage</h3><p>Publication should state the number of valid episodes and uncertainty intervals for every method and task.</p></article>
+            <article><h3>Efficiency</h3><p>Score gains must be accompanied by calls, tokens, cache use, latency, wall time, and GPU-hours.</p></article>
+            <article><h3>Evidence boundary</h3><p>The reasoner must not receive hidden reward, object truth, future simulator state, or case-specific action scripts.</p></article>
+          </div>
+        </section>
+
+        <section class="section page-column" id="roadmap">
+          <div class="section-kicker">07 · Roadmap</div>
+          <h2>From trustworthy baselines to a transferable control layer</h2>
+          <div class="roadmap">
+            <article class="complete"><span>M0</span><div><h3>Reproduction</h3><p>Freeze manifests and protocol boundaries for GPT-as-Policy and QwenPI_v3.</p></div></article>
+            <article class="complete"><span>M1</span><div><h3>Core</h3><p>Establish contracts, gates, traces, fake runtimes, and conformance tests.</p></div></article>
+            <article class="current"><span>M2</span><div><h3>Native QwenPI_v3</h3><p>Demonstrate inference and action-path parity with the maintained StarVLA deployment.</p></div></article>
+            <article><span>M3–M5</span><div><h3>Hybrid · quality · efficiency</h3><p>Run hybrid smoke tests and isolated context/recovery ablations, then reduce calls, tokens, latency, and cost.</p></div></article>
+            <article><span>M6</span><div><h3>Generalization</h3><p>Add a non-VLA policy and a second environment without adding platform constants to the core package.</p></div></article>
+          </div>
+        </section>
+
+        <section class="closing page-column">
+          <p class="closing-kicker">The project succeeds when</p>
+          <h2>Every intervention has evidence, and every improvement survives paired evaluation.</h2>
+          <p>A new policy should require only a small adapter, while every result states its validity boundary, latency, and compute cost.</p>
+          <div class="closing-links">
+            <a href="https://github.com/JackAILab/UnityPolicy#readme" target="_blank" rel="noopener noreferrer">Read the README <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/JackAILab/UnityPolicy/blob/main/UnityPolicy.md" target="_blank" rel="noopener noreferrer">Project vision <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/JackAILab/UnityPolicy/blob/main/docs/architecture.md" target="_blank" rel="noopener noreferrer">Architecture <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/JackAILab/UnityPolicy/blob/main/docs/evaluation.md" target="_blank" rel="noopener noreferrer">Evaluation protocol <span aria-hidden="true">↗</span></a>
+          </div>
+        </section>
+      </article>
+    </main>
+    <footer><span>starRoboHarness · MIT License</span><span>Images and videos intentionally left blank.</span></footer>
+  </body>
+</html>
